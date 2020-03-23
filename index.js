@@ -1,11 +1,11 @@
 var fs = require('fs');
 var path = require('path');
 
-const folder_router = (dir = './routes') => {
+const folder_router = (dir = 'routes') => {
     if (!fs.existsSync(dir)) {
         throw Error('Route folder does not exist!');
     } else {
-        let files = GetFiles(dir).map(file => './' + file.replace(/\\/g, "/"));
+        let files = GetFiles(dir).map(file => '../../' + file.replace(/\\/g, "/"));
         let routes = [];
         files.forEach(file => {
             routes.push(require(file));
